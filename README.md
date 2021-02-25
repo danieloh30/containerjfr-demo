@@ -108,6 +108,15 @@ spec:
   volumeMode: Filesystem
 ```
 
+### Troubleshooting for Request failed (500 java.io.IOException: /template is not a readable directly)
+
+1. Scale down both operator and Container JFR.
+2. Delete existing PVC.
+3. Create new PVC called 'containerjfr' with 500MiB storage, and with
+default StorageClass.
+4. Add 'app=containerjfr' label to PVC.
+5. Scale up operator and Container JFR.
+
 ## References
 
 * Blog: https://developers.redhat.com/blog/2021/01/25/introduction-to-containerjfr-jdk-flight-recorder-for-containers/
