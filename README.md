@@ -53,20 +53,20 @@ REST is easy peasy with this Hello World RESTEasy resource.
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
 
-### Deploy Vert.x App
+## Deploy Vert.x App
 
 ```
 oc new-app quay.io/andrewazores/vertx-fib-demo:0.1.0
 ```
 
-### Deploy JMX Listener
+## Deploy JMX Listener
 
 ```
 oc new-app quay.io/andrewazores/container-jmx-docker-listener:0.1.0 --name=jmx-listener
 oc patch svc/jmx-listener -p '{"spec":{"$setElementOrder/ports":[{"port":7095},{"port":9092},{"port":9093}],"ports":[{"name":"jfr-jmx","port":9093}]}}'
 ```
 
-### Package and Deploy Quarkus App
+## Package and Deploy Quarkus App
 
 ```
 mvn package
@@ -80,7 +80,7 @@ oc new-app quarkus-jvm -e JAVA_OPTIONS='-Dcom.sun.management.jmxremote.port=9091
 oc label deployment/quarkus-jvm app.openshift.io/runtime=quarkus --overwrite
 ```
 
-### Add jfr-jmx service to Quarkus
+## Add jfr-jmx service to Quarkus
 
 ```
     - name: jfr-jmx
