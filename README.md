@@ -89,6 +89,25 @@ oc label deployment/quarkus-jvm app.openshift.io/runtime=quarkus --overwrite
       targetPort: 9091
 ```
 
+## (Optional) Create a PV manually
+
+```
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-containerjfr
+spec:
+  capacity:
+    storage: 500MiB
+  hostPath:
+    path: /mnt/pv-data/pv0010
+    type: ''
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  volumeMode: Filesystem
+```
+
 ## References
 
 * Blog: https://developers.redhat.com/blog/2021/01/25/introduction-to-containerjfr-jdk-flight-recorder-for-containers/
