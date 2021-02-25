@@ -88,3 +88,8 @@ oc label deployment/quarkus-jvm app.openshift.io/runtime=quarkus --overwrite
       port: 9091
       targetPort: 9091
 ```
+
+## References
+
+Blog: https://developers.redhat.com/blog/2021/01/25/introduction-to-containerjfr-jdk-flight-recorder-for-containers/
+Git: git clone -b v1.0.0-BETA5 https://github.com/rh-jmc-team/container-jfr-operator.git    
